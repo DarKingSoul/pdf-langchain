@@ -32,6 +32,9 @@ pip install pypdf
 pip install openAI
 pip install tiktoken -- para la tokenizacion de las palabras 
 pip install chromadb
+
+pip install fastapi
+pip install "uvicorn[standard]"
 ```
 
 ## Notas
