@@ -1,15 +1,14 @@
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.post("/process")
+async def read_root(file: UploadFile = File(...)):
+    with open('base.pdf', 'wb') as f:
+        f.write(file.file.read())
+    await file.close()
+    response = process_doc(question='Quienes son los autores del pdf?')
+    return {'response': file.filename, 'inference': response}

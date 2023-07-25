@@ -29,7 +29,8 @@ def process_doc(
     qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type='stuff', retriever=db.as_retriever())
 
     # st.write(qa.run(question))
-    print(qa.run(question))
+    # print(qa.run(question))
+    return qa.run(question)
 
 
 def client():

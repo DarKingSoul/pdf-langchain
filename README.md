@@ -45,8 +45,15 @@ pip install "uvicorn[standard]"
 
 # Front 
 
+### Para ejecutar el proyecto 
+```sh
+uvicorn main:app --reload
+```
+
 ### Librerias 
 ```sh
 pip install fastapi -- 
 pip install "uvicorn[standard]" -- para el motor 
+pip install python-multipart
 ```
+
